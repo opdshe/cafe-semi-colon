@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ## properties
-semi-colon-main/src/main/resources/application.properties
+/semi-colon-main/src/main/resources/application.properties
