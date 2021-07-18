@@ -1,12 +1,14 @@
 package com.eastlaw.semicolon.user.web.dto;
 
 import com.eastlaw.semicolon.user.domian.User;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+@EqualsAndHashCode
 @Setter
 @Getter
 public class UserRequestDto {

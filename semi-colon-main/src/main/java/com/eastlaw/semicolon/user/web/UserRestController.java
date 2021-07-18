@@ -16,7 +16,7 @@ public class UserRestController {
 
 	@PostMapping("/")
 	public UserResponseDto sinUp(@Valid @RequestBody UserRequestDto requestDto) {
-		return userService.sinUp(requestDto);
+		return userService.signUp(requestDto);
 	}
 
 	@GetMapping("/{id}")

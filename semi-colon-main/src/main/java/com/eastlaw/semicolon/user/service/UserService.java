@@ -14,7 +14,7 @@ public class UserService {
 	private final UserRepositoryCustom userRepository;
 
 	@Transactional
-	public UserResponseDto sinUp(UserRequestDto requestDto) {
+	public UserResponseDto signUp(UserRequestDto requestDto) {
 		if (userRepository.isAlreadyRegisteredEmail(requestDto.getEmail())) {
 			throw new IllegalArgumentException("해당 이메일은 이미 등록된 이메일입니다. 이메일=" + requestDto.getEmail());
 		}
