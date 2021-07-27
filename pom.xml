@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>semi-colon-main</module>
+        <module>semi-colon-common</module>
         <module>semi-colon-consumer</module>
     </modules>
     <parent>

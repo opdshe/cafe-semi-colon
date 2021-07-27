@@ -1,5 +1,6 @@
 package com.eastlaw.semicolon.user.domian;
 
+import com.eastlaw.semicolon.error.InvalidRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,7 @@ public class UserRepositoryCustom {
 
 	public User findById(Long id) {
 		return userRepository.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("해당 id는 등록되지 않은 id 입니다. id=" + id));
+				.orElseThrow(() -> new InvalidRequestException("해당 id는 등록되지 않은 id 입니다. id=" + id));
 	}
 
 	public User save(User user) {

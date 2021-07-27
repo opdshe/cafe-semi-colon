@@ -1,5 +1,6 @@
 package com.eastlaw.semicolon.user.service;
 
+import com.eastlaw.semicolon.error.InvalidRequestException;
 import com.eastlaw.semicolon.user.domian.User;
 import com.eastlaw.semicolon.user.domian.UserRepositoryCustom;
 import com.eastlaw.semicolon.user.web.dto.UserRequestDto;
@@ -16,7 +17,7 @@ public class UserService {
 	@Transactional
 	public UserResponseDto signUp(UserRequestDto requestDto) {
 		if (userRepository.isAlreadyRegisteredEmail(requestDto.getEmail())) {
-			throw new IllegalArgumentException("해당 이메일은 이미 등록된 이메일입니다. 이메일=" + requestDto.getEmail());
+			throw new InvalidRequestException("해당 이메일은 이미 등록된 이메일입니다. 이메일=" + requestDto.getEmail());
 		}
 		User user = userRepository.save(requestDto.toEntity());
 		return UserResponseDto.of(user);

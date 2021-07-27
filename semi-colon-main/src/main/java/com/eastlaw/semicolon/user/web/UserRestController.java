@@ -1,5 +1,6 @@
 package com.eastlaw.semicolon.user.web;
 
+import com.eastlaw.semicolon.api.ApiResult;
 import com.eastlaw.semicolon.user.service.UserService;
 import com.eastlaw.semicolon.user.web.dto.UserRequestDto;
 import com.eastlaw.semicolon.user.web.dto.UserResponseDto;
@@ -20,17 +21,17 @@ public class UserRestController {
 	}
 
 	@GetMapping("/{id}")
-	public UserResponseDto findById(@PathVariable Long id) {
-		return userService.findById(id);
+	public ApiResult<UserResponseDto> findById(@PathVariable Long id) {
+		return ApiResult.success(userService.findById(id));
 	}
 
 	@DeleteMapping("/{id}")
-	public UserResponseDto delete(@PathVariable Long id) {
-		return userService.delete(id);
+	public ApiResult<UserResponseDto> delete(@PathVariable Long id) {
+		return ApiResult.success(userService.delete(id));
 	}
 
 	@PutMapping("/{id}")
-	public UserResponseDto update(@PathVariable Long id, @RequestBody UserRequestDto requestDto){
-		return userService.update(id, requestDto);
+	public ApiResult<UserResponseDto> update(@PathVariable Long id, @RequestBody UserRequestDto requestDto) {
+		return ApiResult.success(userService.update(id, requestDto));
 	}
 }

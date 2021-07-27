@@ -1,5 +1,6 @@
 package com.eastlaw.semicolon.user.service;
 
+import com.eastlaw.semicolon.error.InvalidRequestException;
 import com.eastlaw.semicolon.user.domian.UserRepositoryCustom;
 import com.eastlaw.semicolon.user.web.dto.UserRequestDto;
 import com.eastlaw.semicolon.user.web.dto.UserResponseDto;
@@ -49,7 +50,7 @@ public class UserServiceTest {
 		when(userRepository.isAlreadyRegisteredEmail(singUpRequestDto.getEmail())).thenReturn(true);
 
 		//when & then
-		assertThrows(IllegalArgumentException.class, () -> userService.signUp(singUpRequestDto));
+		assertThrows(InvalidRequestException.class, () -> userService.signUp(singUpRequestDto));
 	}
 
 	@Test
