@@ -1,6 +1,7 @@
 package com.eastlaw.semicolon.user.web;
 
 import com.eastlaw.semicolon.api.ApiResult;
+import com.eastlaw.semicolon.global.security.UserDetailServiceCustom;
 import com.eastlaw.semicolon.user.service.UserService;
 import com.eastlaw.semicolon.user.web.dto.UserRequestDto;
 import com.eastlaw.semicolon.user.web.dto.UserResponseDto;
@@ -30,6 +31,9 @@ class UserRestControllerTest {
 
 	@MockBean
 	private UserService userService;
+
+	@MockBean
+	private UserDetailServiceCustom userDetailServiceCustom;
 
 	private static ObjectMapper objectMapper = new ObjectMapper();
 

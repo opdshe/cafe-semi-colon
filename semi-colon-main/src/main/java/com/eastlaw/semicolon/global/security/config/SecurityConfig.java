@@ -1,5 +1,6 @@
-package com.eastlaw.semicolon.global.security;
+package com.eastlaw.semicolon.global.security.config;
 
+import com.eastlaw.semicolon.global.security.UserDetailServiceCustom;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
