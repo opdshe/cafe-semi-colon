@@ -1,6 +1,9 @@
 package com.eastlaw.semicolon.global.security.config;
 
 import com.eastlaw.semicolon.global.security.UserDetailServiceCustom;
+import com.eastlaw.semicolon.global.security.handler.LogOutSuccessHandler;
+import com.eastlaw.semicolon.global.security.handler.LoginFailureHandler;
+import com.eastlaw.semicolon.global.security.handler.LoginSuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,6 +18,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private final UserDetailServiceCustom userDetailsService;
+	private final LoginSuccessHandler loginSuccessHandler;
+	private final LoginFailureHandler loginFailureHandler;
+	private final LogOutSuccessHandler logOutSuccessHandler;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -33,10 +39,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/login")
 				.loginProcessingUrl("/login")
+				.successHandler(loginSuccessHandler)
+				.failureHandler(loginFailureHandler)
 				.usernameParameter("email")
 				.passwordParameter("password")
 				.and()
-				.logout();
+				.logout()
+				.logoutSuccessHandler(logOutSuccessHandler);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
-package com.eastlaw.semicolon.global.security;
+package com.eastlaw.semicolon.global.security.service;
 
+import com.eastlaw.semicolon.global.security.UserSecurityEntity;
 import com.eastlaw.semicolon.user.domian.User;
 import com.eastlaw.semicolon.user.domian.UserRepositoryCustom;
 import lombok.RequiredArgsConstructor;
