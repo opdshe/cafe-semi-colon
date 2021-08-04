@@ -2,20 +2,22 @@ package com.eastlaw.semicolon.user.web.dto;
 
 import com.eastlaw.semicolon.user.domian.User;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 import static org.springframework.beans.BeanUtils.copyProperties;
 
 @Setter
 @Getter
-public class UserResponseDto {
+@NoArgsConstructor
+public class UserResponseDto implements Serializable {
 	private Long id;
 
 	private String name;
 
 	private String email;
-
-	private String password;
 
 	public static UserResponseDto of(User user) {
 		UserResponseDto dto = new UserResponseDto();

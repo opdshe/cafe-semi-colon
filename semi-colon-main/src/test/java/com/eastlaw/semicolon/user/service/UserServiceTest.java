@@ -38,7 +38,6 @@ public class UserServiceTest {
 		//then
 		assertThat(response.getEmail()).isEqualTo(signUpRequestDto.getEmail());
 		assertThat(response.getName()).isEqualTo(signUpRequestDto.getName());
-		assertThat(response.getPassword()).isEqualTo(signUpRequestDto.getPassword());
 	}
 
 	@Test

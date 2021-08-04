@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Entity
 public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "member_id")
 	@Id
 	private Long id;
 
