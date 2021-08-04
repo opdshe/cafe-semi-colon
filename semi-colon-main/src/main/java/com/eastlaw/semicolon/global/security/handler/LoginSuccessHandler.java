@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
@@ -28,11 +29,11 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
 		HttpSession session = request.getSession();
 		if (Objects.nonNull(session)) {
 			setLoginUserInfo(authentication);
-			String redirectUrl = (String) sessionManager.getSessionAttribute(SessionManager.PREV_PAGE);
+			Optional<Object> redirectUrl = sessionManager.getSessionAttribute(SessionManager.PREV_PAGE);
 			//세션에 이전 페이지 정보 있으면 해당 페이지로 redirect
-			if (Objects.nonNull(redirectUrl)) {
+			if (redirectUrl.isPresent()) {
 				sessionManager.removeAttribute(SessionManager.PREV_PAGE);
-				getRedirectStrategy().sendRedirect(request, response, redirectUrl);
+				getRedirectStrategy().sendRedirect(request, response, (String) redirectUrl.get());
 			} else {
 				super.onAuthenticationSuccess(request, response, authentication);
 			}

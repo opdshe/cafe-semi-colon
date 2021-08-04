@@ -20,9 +20,8 @@ public class SessionManager {
 		}
 	}
 
-	public Object getSessionAttribute(String attribute) {
-		return Optional.ofNullable(httpSession.getAttribute(attribute))
-				.orElseThrow(() -> new RuntimeException("session attribute not found. attribute =" + attribute));
+	public Optional<Object> getSessionAttribute(String attribute) {
+		return Optional.ofNullable(httpSession.getAttribute(attribute));
 	}
 
 	public void removeAttribute(String attribute) {

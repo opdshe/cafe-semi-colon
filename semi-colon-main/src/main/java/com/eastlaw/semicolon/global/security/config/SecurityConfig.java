@@ -1,6 +1,6 @@
 package com.eastlaw.semicolon.global.security.config;
 
-import com.eastlaw.semicolon.global.security.UserDetailServiceCustom;
+import com.eastlaw.semicolon.global.security.service.UserDetailServiceCustom;
 import com.eastlaw.semicolon.global.security.handler.LogOutSuccessHandler;
 import com.eastlaw.semicolon.global.security.handler.LoginFailureHandler;
 import com.eastlaw.semicolon.global.security.handler.LoginSuccessHandler;
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 				.csrf().disable()
 				.authorizeRequests()
-				.antMatchers("/**").permitAll()
+				.antMatchers("/api/user/**", "/index", "/login").permitAll()
 				.anyRequest()
 				.authenticated()
 				.and()

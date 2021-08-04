@@ -3,8 +3,7 @@ package com.eastlaw.semicolon.error;
 import com.eastlaw.semicolon.api.ApiResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "com.eastlaw.semicolon")
 public class ApiControllerAdvice {
 	/**
 	 * 앱 실행 도중 RuntimeException 발생 시 ApiResult.fail() 반환
